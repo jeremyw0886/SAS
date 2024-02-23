@@ -6,7 +6,6 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>SAS</title>
-      <!-- Add any other meta tags and links to CSS files here -->
   </head>
   <body>
 
