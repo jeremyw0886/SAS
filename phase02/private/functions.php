@@ -42,4 +42,15 @@ function is_post_request() {
 function is_get_request() {
     return $_SERVER['REQUEST_METHOD'] === 'GET';
 }
+
+function error404() {
+    header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");
+    exit();
+}
+
+function error500() {
+    header($_SERVER["SERVER_PROTOCOL"] . " 500 Internal Server Error");
+    exit();
+}
+
 ?>

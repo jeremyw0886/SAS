@@ -1,6 +1,4 @@
 <footer>
-  <p>&copy; <?= date('Y'); ?> Southern Appalachian Salamanders</p>
+  <p>&copy; <?= date('Y'); ?> Southern Appalachian Salamanders</p><br>
+  <a href="../../../../index.html">Home</a>
 </footer>
-
-</body>
-</html>
