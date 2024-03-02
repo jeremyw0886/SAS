@@ -1,19 +1,37 @@
-<?php require_once('../../private/initialize.php'); ?>
-
 <?php
-// Initialize cURL session
-$curl = curl_init();
 
-// Set the URL and other necessary options
-curl_setopt($curl, CURLOPT_URL, "http://localhost:8888/web182/sas/public/salamanders/new.php");
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+require_once('../../private/initialize.php');
 
-// Execute the cURL session and store the response
-$response = curl_exec($curl);
+$test = $_GET['test'] ?? '';
 
-// Close the cURL session
-curl_close($curl);
+if ($test == '404') {
+  error_404();
+} elseif ($test == '500') {
+  error_500();
+} elseif ($test == 'redirect') {
+  redirect_to(url_for('/salamanders/index.php'));
+}
 
-// Display the response
-echo $response;
 ?>
+
+<?php $page_title = 'Create Salamander' ?>
+<?php include(SHARED_PATH . '/salamander-header.php'); ?>
+
+<div id="content">
+  <a href="<?php echo url_for('/salamanders/index.php'); ?>">&laquo; Back to List</a>
+
+  <div>
+    <h1>Create Salamander</h1>
+
+    <form action="<?php echo url_for('salamanders/create.php'); ?>" method="post">
+      <label for="name">Name</label><br>
+      <input type="text" name="name" value="">
+      <div>
+        <input type="submit" value="Create Salamander">
+      </div>
+    </form>
+  </div>
+
+</div>
+
+<?php include(SHARED_PATH . '/salamander-footer.php'); ?>

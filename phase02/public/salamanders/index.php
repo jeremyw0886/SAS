@@ -1,50 +1,54 @@
-<?php require_once('../../private/initialize.php'); ?>
+<?php 
+session_start();
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title><?php echo $page_title; ?> - Salamanders</title>
-  </head>
+require_once('../../private/initialize.php');
 
-  <body>
-    <?php include('../../private/shared/salamander-header.php'); ?>
+$original_salamanders = [
+  ['id' => '1',  'salamanderName' => 'Red-Legged Salamander'],
+  ['id' => '2',  'salamanderName' => 'Pigeon Mountain Salamander'],
+  ['id' => '3',  'salamanderName' => 'ZigZag Salamander'],
+  ['id' => '4',  'salamanderName' => 'Slimy Salamander'],
+];
 
-    <table id="salamanders">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <a href="#">Create Salamander</a> <!-- This line is added to pass the test. -->
-        <?php 
-            $salamanders = [
-              ['id' => '1', 'salamanderName' => 'Spotted Salamander'],
-              ['id' => '2', 'salamanderName' => 'Tiger Salamander'],
-              ['id' => '3', 'salamanderName' => 'Red Salamander'],
-              ['id' => '4', 'salamanderName' => 'Blue-spotted Salamander'],
-            ];
+// session_unset();
 
-          foreach ($salamanders as $salamander): ?>
-          <tr>
-            <td><?php echo h($salamander['id']); ?></td>
-            <td><?php echo h($salamander['salamanderName']); ?></td>
-            <td>
-              <a href="<?php echo urlFor('/salamanders/show.php?id=' . h(u($salamander['id']))); ?>">View</a>
-              <!-- <a href="<?php //echo urlFor('/salamanders/edit.php?id=' . h(u($salamander['id']))); ?>">Edit</a> -->
-              <a href="#">Edit</a> <!-- This line is added to pass the test. -->
-              <!-- <a href="<?php //echo urlFor('/salamanders/delete.php?id=' . h(u($salamander['id']))); ?>">Delete</a> -->
-              <a href="#">Delete</a> <!-- This line is added to pass the test. -->
-            </td>
-          </tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
+if (!isset($_SESSION['salamanders'])) {
+  $_SESSION['salamanders'] = $original_salamanders;
+} else {
+    foreach ($original_salamanders as $original_salamander) {
+      if (!in_array($original_salamander, $_SESSION['salamanders'])) {
+        array_unshift($_SESSION['salamanders'], $original_salamander);
+    }
+  }
+}
 
-    <?php include(SHARED_PATH . '/salamander-footer.php'); ?>
-  </body>
-</html>
+$salamanders = $_SESSION['salamanders'];
+
+$page_title = 'Salamanders';
+include(SHARED_PATH . '/salamander-header.php');
+
+?>
+
+<h1>Salamanders Main Page</h1>
+
+<a href="<?php echo url_for('/salamanders/new.php'); ?>">Create a Salamander</a>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th colspan="3">Action</th>
+  </tr>
+
+  <?php foreach ($salamanders as $salamander) { ?>
+    <tr>
+      <td><?= h($salamander['id']); ?></td>
+      <td><?= h($salamander['salamanderName']); ?></td>
+      <td><a href="<?= url_for('salamanders/show.php?id=' . h(u($salamander['id']))); ?>">View</a></td>
+      <td><a href="<?= url_for('salamanders/edit.php?id=' . h(u($salamander['id']))); ?>">Edit</a></td>
+      <td><a href="">Delete</a></td>
+    </tr>
+  <?php } ?>
+</table>
+
+<?php include(SHARED_PATH . '/salamander-footer.php'); ?>
