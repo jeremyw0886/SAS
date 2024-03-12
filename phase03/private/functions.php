@@ -42,4 +42,8 @@ function is_post_request() {
 function is_get_request() {
     return $_SERVER['REQUEST_METHOD'] === 'GET';
 }
+
+function db_escape($db, $string) {
+    return mysqli_real_escape_string($db, $string);
+}
 ?>

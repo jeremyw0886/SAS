@@ -8,3 +8,5 @@ if (is_post_request()) {
     redirect_to(url_for('/salamanders/new.php'));
 }
 ?>
+
+

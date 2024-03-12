@@ -4,7 +4,6 @@ require_once('../../private/initialize.php');
 
 $salamander_set = find_all_salamanders();
 
-
 $page_title = 'Salamanders';
 include(SHARED_PATH . '/salamander-header.php');
 
@@ -29,9 +28,9 @@ include(SHARED_PATH . '/salamander-header.php');
       <td><?= h($salamander['name']); ?></td>
       <td><?= h($salamander['habitat']); ?></td>
       <td><?= h($salamander['description']); ?></td>
-      <td><a href="<?= url_for('salamanders/show.php?id=' . h(u($salamander['id']))); ?>">View</a></td>
-      <td><a href="<?= url_for('salamanders/edit.php?id=' . h(u($salamander['id']))); ?>">Edit</a></td>
-      <td><a href="<?= url_for('salamanders/delete.php?id=' . h(u($salamander['id']))); ?>">Delete</a></td>
+      <td><a href="<?= url_for('../salamanders/show.php?id=' . h(u($salamander['id']))); ?>">View</a></td>
+      <td><a href="<?= url_for('../salamanders/edit.php?id=' . h(u($salamander['id']))); ?>">Edit</a></td>
+      <td><a href="<?= url_for('../salamanders/delete.php?id=' . h(u($salamander['id']))); ?>">Delete</a></td>
     </tr>
   <?php } ?>
 </table>

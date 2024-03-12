@@ -15,6 +15,8 @@ if (is_post_request()) {
 $pageTitle = "Edit";
 include (SHARED_PATH . '/salamander-header.php');
 ?>
+<p> Page ID: <?= h($id); ?></p>
+<?php echo "<p>Stub for edit.php</p>"; ?>
 <a href= "<?= url_for('/salamanders/index.php'); ?>">&laquo; Back to List</a>
 <h1>Edit Salamander</h1>
 <!-- add label -->
