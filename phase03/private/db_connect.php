@@ -4,10 +4,17 @@
 // of database interaction using PHP.
 
 // Credentials
-define('DB_SERVER', 'localhost');
-define('DB_USER', 'sally');
-define('DB_PASS', 'somePa55word');
-define('DB_NAME', 'salamanders');
+if( $_SERVER['SERVER_NAME'] == 'localhost') {
+    define('DB_SERVER', 'localhost');
+    define('DB_USER', 'sally');
+    define('DB_PASS', 'somePa55word');
+    define('DB_NAME', 'salamanders');
+} else {
+    define('DB_SERVER', 'localhost');
+    define('DB_USER', 'czpshnmy_sally');
+    define('DB_PASS', 'somePa55word');
+    define('DB_NAME', 'czpshnmy_salamanders');
+}
 
 // 1. Create a database connection
 $connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);

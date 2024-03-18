@@ -6,22 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeremy's Web Development Projects</title>
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../sas/sas-css/sas.css">
+    <link rel="stylesheet" href="sas-css/sas.css">
   </head>
 
   <body>
     <div id="wrapper">
       <header role="banner">
         <img src="../images/logo.png" height="300" width="300" alt="DevDude Jeremy Logo.">
-        <h1><p><abbr title="Southern Apalachian Salamanders">SAS</abbr> Developement</p></h1>
+        <h1><abbr title="Southern Apalachian Salamanders">SAS</abbr> Developement</h1>
       </header>
 
       <div class="container">
         <nav class="navbar">
-          <div id="menu-btn">Menu</div>
-            <ul id="nav-links" class="hidden">
+          <span id="menu-trigger">&#9776;</span>
+          <ul id="nav-links" class="hidden">
               <li><a href="../index.html">Home</a></li>
-              <li><a href="../web182/assignments.html">Web-182 Assignments</a></li>
+              <li><a href="../web182/assignments.html">Web-182</a></li>
               <li><a href="index.html">SAS</a></li>
             </ul>
         </nav>
@@ -32,19 +32,19 @@
 
           <section id="phases">
             <ul>
-              <li id="one"><a href="phase01/public/index.php">Phase01</a></li>
-              <li id="two"><a href="phase02/public/index.php">Phase02</a></li>
-              <li id="three"><a href="phase03/public/index.php">Phase03</a></li>
-            </ul><br>
-          </section>
+              <li id="one"><a href="phase01/index.php">Phase01</a></li>
+              <li id="two"><a href="phase02/index.php">Phase02</a></li>
+              <li id="three"><a href="phase03/index.php">Phase03</a></li>
+            </ul>
+          </section><br>
           <button onclick="window.history.back();">Previous Page</button>
         </main>
-      </div>
 
       <footer role="contentinfo">
         <p><small>All content &copy;<time datetime="2024">2024</time> Jeremy Warren</small></p>
       </footer> 
+      </div>
     </div>
-    <script src="../js/navbar-toggle.js"></script>  
+    <script src="../js/navbar-click.js"></script>  
   </body>
 </html>
