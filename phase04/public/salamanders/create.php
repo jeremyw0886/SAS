@@ -15,4 +15,4 @@ if (is_post_request()) {
   redirect_to(url_for('salamanders/show.php?id=' . $newID));
 }
 
-include(SHARED_PATH . '/salamander-footer.php');
+include(SHARED_PATH . '/salamander-footer.php'); 
