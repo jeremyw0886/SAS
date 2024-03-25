@@ -1,12 +1,9 @@
-CREATE DATABASE IF NOT EXISTS salamanders;
-USE salamanders;
 DROP TABLE IF EXISTS salamander;
 CREATE TABLE `salamander` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `habitat` text,
   `description` text,
-  PRIMARY KEY(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `salamander` (`id`, `name`, `habitat`, `description` ) VALUES
@@ -18,6 +15,6 @@ INSERT INTO `salamander` (`id`, `name`, `habitat`, `description` ) VALUES
 
 
 -- Create a user named sally and grant that user all privileges
-CREATE USER 'sally'@'localhost' IDENTIFIED BY 'P@ssword1234';
-GRANT ALL PRIVILEGES ON salamanders.* TO 'sally'@'localhost';
-FLUSH PRIVILEGES;
+-- CREATE USER 'sally'@'localhost' IDENTIFIED BY 'P@ssword1234';
+-- GRANT ALL PRIVILEGES ON salamanders.* TO 'sally'@'localhost';
+-- FLUSH PRIVILEGES;
