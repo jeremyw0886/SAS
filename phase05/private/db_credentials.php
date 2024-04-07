@@ -1,9 +1,9 @@
 <?php
 // local
-// define("DB_SERVER", "localhost");
-// define("DB_USER", "sally");
-// define("DB_PASS", "somepa55word");
-// define("DB_NAME", "salamanders");
+define("DB_SERVER", "localhost");
+define("DB_USER", "sally");
+define("DB_PASS", "somepa55word");
+define("DB_NAME", "salamanders");
 
 //a2
 // define("DB_SERVER", "localhost");
@@ -12,7 +12,3 @@
 // define("DB_NAME", "charli12_salamanders");
 
 
-define('DB_SERVER', 'localhost');
-define('DB_USER', 'czpshnmy_sally');
-define('DB_PASS', 'somePa55word');
-define('DB_NAME', 'czpshnmy_salamanders');
